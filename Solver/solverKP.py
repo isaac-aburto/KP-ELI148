@@ -3,7 +3,7 @@ import os
 import time
 
 from Problem.KP.problem import KP
-from Metaheuristics.imports import iterarWOA, iterarGWO
+from Metaheuristics.imports import iterarWOA, iterarGWO, iterarSCA
 from Diversity.imports import diversidadHussain,porcentajesXLPXPT
 from Discretization import discretization as b
 from util import util
@@ -72,7 +72,7 @@ def solverKP(id, mh, maxIter, pop, instancia, DS, param):
     print("fitness incial: "+str(fitness))
     print("Best fitness inicial: "+str(BestFitness))
     print("------------------------------------------------------------------------------------------------------")
-    if mh == "GA":
+    if mh == "SCA":
         print("COMIENZA A TRABAJAR LA METAHEURISTICA "+mh)
     else: 
         print("COMIENZA A TRABAJAR LA METAHEURISTICA "+mh+ " / Binarizacion: "+ str(DS))
@@ -101,7 +101,9 @@ def solverKP(id, mh, maxIter, pop, instancia, DS, param):
         
         # perturbo la poblacion con la metaheuristica, pueden usar SCA y GWO
         # en las funciones internas tenemos los otros dos for, for de individuos y for de dimensiones
-        # print(poblacion)
+        # print(poblacion)  
+        if mh == "SCA":
+            poblacion = iterarSCA(maxIter, iter, instance.getItems(), poblacion.tolist(), fitness.tolist(), 'MAX')
         if mh == "GWO":
             poblacion = iterarGWO(maxIter, iter, instance.getItems(), poblacion.tolist(), fitness.tolist(), 'MAX')
         if mh == 'WOA':

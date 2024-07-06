@@ -5,7 +5,7 @@ bd = BD()
 
 kp = True
 # mhs = ['EOO','FOX','GOA','GWO','HBA','PSA','PSO','RSA','SCA','SHO','TDA','WOA']
-mhs = ['GWO']
+mhs = ['SCA']
 
 cantidad = 0
 
@@ -36,7 +36,7 @@ if kp:
     #                                   "knapPI_1_100_1000_1","knapPI_2_100_1000_1","knapPI_3_100_1000_1","knapPI_1_200_1000_1","knapPI_2_200_1000_1","knapPI_3_200_1000_1","knapPI_1_500_1000_1","knapPI_2_500_1000_1","knapPI_3_500_1000_1","knapPI_1_1000_1000_1","knapPI_2_1000_1000_1","knapPI_3_1000_1000_1","knapPI_1_2000_1000_1","knapPI_2_2000_1000_1","knapPI_3_2000_1000_1"
     #                                   ''')
     instancias = bd.obtenerInstancias(f'''
-                                      "knapPI_1_100_1000_1"
+                                      "knapPI_2_100_1000_1", "knapPI_2_200_1000_1"
                                       ''')
     iteraciones = 500
     experimentos = 1
